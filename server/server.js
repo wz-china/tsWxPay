@@ -6,12 +6,30 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const WebpackConfig = require('./webpack.config')
 
 const app = express()
+app.all('*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', '*');
+  res.header('Content-Type', 'application/json;charset=utf-8');
+  next();
+});
 
 const compiler = webpack(WebpackConfig)
 
 const router = express.Router()
 
-wxpayRouter()
+router.get('/simple/get', function(req, res) {
+  res.json({
+    msg: `hello world`
+  })
+})
+
+router.post('/simple/post', function(req, res) {
+  console.log(req.body)
+  res.json(req.body)
+})
+
+extendRouter()
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/__build__/',
@@ -36,8 +54,7 @@ module.exports = app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
 })
 
-
-function wxpayRouter() {
+function extendRouter() {
   router.post('/extend/test', function(req, res) {
     res.json(req.body)
   })
