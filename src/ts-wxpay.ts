@@ -5,4 +5,9 @@ export default class TsWxpay {
 
 
   }
+
+  test(){
+    console.log("你大爷的!")
+  }
+
 }

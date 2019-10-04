@@ -4,12 +4,9 @@ const app = express();
 
 let wxpay = require("./routes/wxpay")
 
-import tsWxpay from "../src/ts-wxpay"
-console.log(tsWxpay)
-
 app.use("/pay",wxpay)
 
-app.get('/',function(req:any,res:any){
+app.get('/',function(req,res){
   res.send('Hello World!');
 });
 
