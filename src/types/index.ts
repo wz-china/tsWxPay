@@ -72,6 +72,8 @@ export interface WxApiResponse{
   prepay_id?:string
   trade_type?:string
   code_url?:string
+  refund_id?:string
+  refund_fee?:number
 }
 
 export interface NotifyResponseConfig{

@@ -123,6 +123,13 @@ export default class WxpayTools {
     }
   }
 
+  // 退款接口
+  async refundMoney(){
+    // todo
+
+  }
+
+
   // 小程序需要单独处理一下
   deal_mini(res:any):ResponseConfig{
     let time:string = new Date().getTime() +""

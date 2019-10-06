@@ -70,6 +70,4 @@ export default class TsWxpay extends WxpayTools {
   }
 
 
-
-
 }

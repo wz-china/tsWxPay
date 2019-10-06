@@ -3,6 +3,7 @@ let route = express.Router()
 let wxPay = require("../../dist/ts-wxpay.umd")
 let orderId = require("order-id")("8u2jdjy83b2h8s92j2gd83h")
 const jsonxml = require("jsonxml")
+let fs = require("fs")
 
 let wxpay = new wxPay({
   appid:"wx725a9590e7ddf9d0",
@@ -68,7 +69,6 @@ route.all('/inner',async (req,res,next) =>{
 
 
 })
-
 
 
 // 查询订单
