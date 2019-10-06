@@ -85,13 +85,13 @@ let pay = await wxpay.JSAPIPay('NATIVE',{
 ```
 
 
-### 4.接受微信的异步通知回调
+### 5.接受微信的异步通知回调
 将微信的通知结果进行转义json格式，传递xml内的内容，进行真实性验证
 ``` js
 let check = wxpay.check_order(req.body.xml)
 ```
 
-### 5.查询某一订单的订单状态
+### 6.查询某一订单的订单状态
 ``` js
 let order = wxpay.search_order('4200000402201910061693919630')
 ```
