@@ -5,11 +5,11 @@ let orderId = require("order-id")("8u2jdjy83b2h8s92j2gd83h")
 const jsonxml = require("jsonxml")
 
 let wxpay = new wxPay({
-  appid:"wxdb09b73fb76b2b01",
-  mch_id:"1495674662",
+  appid:"wx725a9590e7ddf9d0",
+  mch_id:"1504787541",
   sign_type:"MD5",
   notify_url:'http://pay.mynatapp.cc/pay/notify_back',
-},"1A12B25123463C0D8377B22C1D0FD66A")
+},"437990e4ed605c140e25107150b524f6")
 
 
 //统一下单
@@ -32,9 +32,50 @@ route.all('/minipay',async (req,res,next) =>{
 
 })
 
+//微H5支付
+route.all('/h5pay',async (req,res,next) =>{
+  let {openid,totalFee} = req.body
+  let order_id = orderId.generate()
+  let ip = '113.124.236.94'
+
+  let pay = await wxpay.h5Pay({
+    body:'商品测试支付',
+    total_fee:1,
+    spbill_create_ip:ip,
+    order_id:order_id
+  })
+
+  res.send(pay)
+
+
+})
+
+//微信内部支付
+route.all('/inner',async (req,res,next) =>{
+  let {openid,totalFee} = req.body
+  let order_id = orderId.generate()
+  let ip = '113.124.236.94'
+
+  let pay = await wxpay.JSAPIPay('APP',{
+    openid:'oYx6w0hsXeFuWXZ2XdTAG6o_Wj4g',
+    body:'商品测试支付',
+    total_fee:1,
+    spbill_create_ip:ip,
+    order_id:order_id
+  })
+
+  res.send(pay)
+
+
+})
+
+
+
 // 查询订单
 route.all('/search',function (req,res) {
-  wxpay.test()
+  // 4200000402201910061693919630
+  let order = wxpay.search_order('4200000402201910061693919630')
+  console.log(order)
   res.send("ok2")
 })
 

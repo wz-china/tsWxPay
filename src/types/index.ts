@@ -1,7 +1,8 @@
 type SignType = "MD5" | "HMAC-SHA256"
-type TradeType = "JSAPI" | 'MWEB'
+export type TradeType = "JSAPI" | 'MWEB' | "NATIVE" | "APP"
 
 
+// 基础配置
 export interface WxpayBaseConfig{
   appid:string
   mch_id:string
@@ -9,6 +10,7 @@ export interface WxpayBaseConfig{
   notify_url:string
 }
 
+// 支付
 export interface WxpayMiniRequestConfig{
   nonce_str:string
   trade_type:TradeType
@@ -20,15 +22,27 @@ export interface WxpayMiniRequestConfig{
   out_trade_no:string
   total_fee:number
   spbill_create_ip?:string        // 调用微信支付api的机器ip
-  order_id?:string                // 真实订单号，放到attach里面
+  order_id:string                // 真实订单号，放到attach里面
   other_info?:string             // 其他信息，放到attach里面
   sign:string
 
 }
 
-export interface WxpayMiniAndBaseConfig extends WxpayBaseConfig,WxpayMiniRequestConfig{
+// 搜索接口
+export interface WxpaySearchConfig{
+  appid:string
+  mch_id:string
+  transaction_id:string
+  nonce_str?:string
+  sign?:string
+  sign_type?:SignType
+}
+
+
+export interface WxpayAllRequestConfig extends WxpayBaseConfig,WxpayMiniRequestConfig{
 
 }
+
 
 export interface AttachData{
   order_id:string,
@@ -37,6 +51,7 @@ export interface AttachData{
 
 export interface WxUrl{
   create:string
+  search:string
 }
 
 export interface ResponseConfig{
@@ -49,7 +64,7 @@ export interface WxApiResponse{
   return_code:string
   return_msg?:string
   appid?:string
-  appid?:string
+
   mch_id?:string
   nonce_str?:string
   sign?:string
