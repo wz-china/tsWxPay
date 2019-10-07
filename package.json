@@ -1,11 +1,11 @@
 {
-  "name": "ts-wxpay",
-  "version": "0.0.0",
+  "name": "ts-wxpays",
+  "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/ts-wxpay.umd.js",
-  "module": "dist/ts-wxpay.es5.js",
-  "typings": "dist/types/ts-wxpay.d.ts",
+  "main": "dist/ts-wxpays.umd.js",
+  "module": "dist/ts-wxpays.es5.js",
+  "typings": "dist/types/ts-wxpays.d.ts",
   "files": [
     "dist"
   ],

@@ -1,16 +1,15 @@
 let express = require("express")
 let route = express.Router()
-let wxPay = require("../../dist/ts-wxpay.umd")
+let wxPay = require("../../dist/ts-wxpays.umd")
 let orderId = require("order-id")("8u2jdjy83b2h8s92j2gd83h")
 const jsonxml = require("jsonxml")
-let fs = require("fs")
 
 let wxpay = new wxPay({
-  appid:"wx725a9590e7ddf9d0",
-  mch_id:"1504787541",
+  appid:"wx725a9590e7ddf9d0111",
+  mch_id:"1504787541111",
   sign_type:"MD5",
   notify_url:'http://pay.mynatapp.cc/pay/notify_back',
-},"437990e4ed605c140e25107150b524f6")
+},"437990e4ed605c140e25107150b524f612231")
 
 
 //统一下单
@@ -69,7 +68,6 @@ route.all('/inner',async (req,res,next) =>{
 
 
 })
-
 
 // 查询订单
 route.all('/search',function (req,res) {

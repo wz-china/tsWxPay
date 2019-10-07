@@ -33,8 +33,9 @@ export default class WxpayTools {
 
     let str:string = `${strinfo}&key=${this.secert}`
     console.log('字符串',str)
-    let sign = md5(str).toUpperCase()
-    let jsoninfo = {...param,sign:sign}
+    let sign:string = md5(str).toUpperCase()
+    let jsoninfo:any = {...param,sign:sign}
+
 
     let temp = {
       xml:jsoninfo

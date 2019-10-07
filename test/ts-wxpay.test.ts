@@ -1,4 +1,4 @@
-import DummyClass from "../src/ts-wxpay"
+import DummyClass from "../src/ts-wxpays"
 
 /**
  * Dummy test
