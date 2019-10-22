@@ -5,6 +5,7 @@ import DummyClass from "../src/ts-wxpays"
  */
 describe("Dummy test", () => {
   it("works if true is truthy", () => {
+  	console.log('测试中')
     expect(true).toBeTruthy()
   })
 
