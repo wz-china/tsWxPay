@@ -122,7 +122,7 @@
   },
   "dependencies": {
     "@types/express": "^4.17.1",
-    "body-parser-xml": "^1.1.0",
+    "body-parser-xml": "^2.0.3",
     "express": "^4.17.1",
     "jsonkeysort": "^1.0.1",
     "jsonxml": "^1.0.0",
